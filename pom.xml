@@ -1,34 +1,41 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- Anda bebas memilih groupId dan artifactId dari project maven -->
 	<groupId>com.innovez.sample</groupId>
 	<artifactId>spring-security-sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<dependencies>
+		<!-- Dependecy untuk logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.10</version>
 		</dependency>
 
+		<!-- Ini dibutuhkan untuk (salah satunya) transaction management dengan annotation @Transactional -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
 			<version>4.1.4.RELEASE</version>
 		</dependency>
 
+		<!-- Library utama spring-webmvc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.1.4.RELEASE</version>
 		</dependency>
+		<!-- Silahkan ganti versi servlet-api sesuai kontainer yang di gunakan -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
+		<!-- Library yang akan digunakan oleh komponen spring web untuk serialize object java ke json -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -50,11 +57,13 @@
 			<artifactId>spring-orm</artifactId>
 			<version>4.1.4.RELEASE</version>
 		</dependency>
+		<!-- Hibernate JPA Persistence Provider -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.8.Final</version>
 		</dependency>
+		<!-- Agar praktis, project ini menggunakan embedded database -->
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
@@ -96,6 +105,7 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+			<!-- Embedded jetty servlet container, web project bisa dijalankan dengan perintah mvn jetty:run -->
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
